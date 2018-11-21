@@ -1,0 +1,32 @@
+.cards-container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    max-width: 1040px;
+    margin: 0 auto;
+
+    .card{
+        cursor: pointer;
+        user-select: none;
+
+        width: 200px;
+        height: 200px;
+        background-color: rgb(228, 159, 245);
+        border-radius: 16px;
+        margin-top: 16px;
+        padding: 8px;
+        flex-basis: 210px;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+
+        div.text{
+            margin-top: calc(50% - 20px);
+            display: block;
+            height: 20px;
+            font-size: 20px;
+        }
+    }
+}
