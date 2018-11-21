@@ -1,0 +1,12 @@
+// Import fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+@import 'vendor/normalize';
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+@import 'elements/startscreen';
+@import 'elements/cards-container';
+@import 'elements/endgame-modal';
