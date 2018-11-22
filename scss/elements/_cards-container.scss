@@ -35,10 +35,14 @@
         .memory{
             display: none;
         }
-    }
 
-    .card:hover{
-        box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.75);
+        .text{
+            transition: font-size .2s ease;
+        }
+
+        .memory{
+            transition: font-size .2s ease;
+        }
     }
 
     .card.hidden{
@@ -53,6 +57,18 @@
             font-size: 40px;
             font-weight: bold;
             display: initial;
+        }
+    }
+
+    .card:hover{
+        box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.75);
+        
+        .text{
+            font-size: 22px;
+        }
+
+        div.memory{
+            font-size: 2.6rem;
         }
     }
 }
