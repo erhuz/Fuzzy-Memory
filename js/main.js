@@ -4,8 +4,35 @@ window.onload = () => {
     const cardsContainer = document.querySelector('.cards-container')
     const endGameModal = document.querySelector('.endgame-modal')
 
-    // Set reference to all 
+    // Set reference to all cards
     const cards = cardsContainer.querySelectorAll('.card')
+
+    // create an array to store the last two clicked elements
+    let lastTwoClicks = [];
+
+    // What happends when you click an element?
+    function click(element) {
+        
+        // If you clicked
+        if(!element.classList.contains('hidden')) {
+            console.log('You clicked a showing button')
+            // element.classList.add('hidden')
+            // lastTwoClicks = []
+
+        } else if (lastTwoClicks.length >= 2) {
+            lastTwoClicks.forEach((el) => {
+                el.classList.add('hidden')
+            })
+            console.log(lastTwoClicks)
+            lastTwoClicks = [element]
+        } else {
+            lastTwoClicks.push(element)
+        }
+        console.log('After: ' + lastTwoClicks.length);
+
+        console.log(lastTwoClicks)
+        element.classList.remove('hidden')
+    }
 
     // Start game with (8) pairs
     startGame(8)
@@ -32,20 +59,18 @@ window.onload = () => {
             shuffle(contents)
         }
 
-        console.log(contents)
-
+        // Assign content to cards
         for (let i = 0; i < (amountOfPairs * 2); i++) {
             let tmp = contents[i]
             cardsContainer.innerHTML += cardTemplate(i, tmp)
-            
         }
 
+        // Add evenlisteners to cards
         for (let i = 0; i < cardsContainer.children.length; i++) {
             cardsContainer.children[i].addEventListener("click", () => {
                 let tmp = cardsContainer.children[i].querySelector('.text').innerHTML
-                console.log(i + ' was clicked with the content \'' + tmp + '\'')
 
-                cardsContainer.children[i].classList.toggle('hidden')
+                click(cardsContainer.children[i])
             })
         }
     }
@@ -72,7 +97,7 @@ function shuffle(a) {
  * Gets a random string of numbers
  * @param {int} an integer defining the amount of numbers in the string
  */
-const getRandNumStr = (n) => {
+function getRandNumStr(n) {
     let tmp = ''
 
     for (let i = 0; i < n; i++) {
