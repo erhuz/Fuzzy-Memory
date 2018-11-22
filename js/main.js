@@ -1,6 +1,5 @@
 window.onload = () => {
   // Set references to main elements
-  const startScreen = document.querySelector('.start-screen')
   const cardsContainer = document.querySelector('.cards-container')
   const endGameModal = document.querySelector('.endgame-modal')
   const restartBtn = document.querySelector('.restartBtn')
@@ -35,6 +34,11 @@ window.onload = () => {
     }
     // Show hidden cards content
     element.classList.remove('hidden')
+
+    // If won
+    if(checkIfWon()){
+      endGameModal.classList.remove('hidden')
+    }
   }
 
   restartBtn.addEventListener("click", () => {
@@ -48,6 +52,11 @@ window.onload = () => {
    *  @param {int} amountOfPairs An integer to specify amount of pairs
    */
   function startGame(amountOfPairs) {
+
+    if(!endGameModal.classList.contains('hidden')){
+      endGameModal.classList.add('hidden')
+    }
+
     cardsContainer.innerHTML = null
     cardTemplate = (id, content, i) => `
         <div id="${id}" class="card hidden">
@@ -82,6 +91,26 @@ window.onload = () => {
         click(cardsContainer.children[i])
       })
     }
+  }
+
+  /**
+   * Checks if the game is won,
+   * in that case, who engame modal
+   * 
+   * @returns bool
+   */
+  function checkIfWon(){
+    let counter = 0
+    for (let i = 0; i < cardsContainer.children.length; i++) {
+      if(cardsContainer.children[i].classList.contains('hidden')){
+        counter++
+      }
+    }
+
+    if(counter === 0){
+      return true
+    }
+    return false
   }
 }
 
