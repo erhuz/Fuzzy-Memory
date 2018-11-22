@@ -1,79 +1,71 @@
 window.onload = () => {
-    // Set references to main elements
-    const startScreen = document.querySelector('.start-screen')
-    const cardsContainer = document.querySelector('.cards-container')
-    const endGameModal = document.querySelector('.endgame-modal')
+  // Set references to main elements
+  const startScreen = document.querySelector('.start-screen')
+  const cardsContainer = document.querySelector('.cards-container')
+  const endGameModal = document.querySelector('.endgame-modal')
 
-    // Set reference to all cards
-    const cards = cardsContainer.querySelectorAll('.card')
+  // create an array to store the last two clicked elements
+  let lastTwoClicks = []
 
-    // create an array to store the last two clicked elements
-    let lastTwoClicks = [];
+  // What happends when you click an element?
+  function click(element) {
 
-    // What happends when you click an element?
-    function click(element) {
-        
-        // If you clicked
-        if(!element.classList.contains('hidden')) {
-            console.log('You clicked a showing button')
-            // element.classList.add('hidden')
-            // lastTwoClicks = []
+    // If you clicked
+    if (!element.classList.contains('hidden')) {
 
-        } else if (lastTwoClicks.length >= 2) {
-            lastTwoClicks.forEach((el) => {
-                el.classList.add('hidden')
-            })
-            console.log(lastTwoClicks)
-            lastTwoClicks = [element]
-        } else {
-            lastTwoClicks.push(element)
-        }
-        console.log('After: ' + lastTwoClicks.length);
+    } else if (lastTwoClicks.length >= 2) {
+      lastTwoClicks.forEach((el) => {
+        el.classList.add('hidden')
+      })
 
-        console.log(lastTwoClicks)
-        element.classList.remove('hidden')
+      lastTwoClicks = [element]
+    } else {
+      lastTwoClicks.push(element)
     }
+    
+    element.classList.remove('hidden')
+  }
 
-    // Start game with (8) pairs
-    startGame(8)
+  // Start game with (8) pairs
+  startGame(8)
 
-    // 
-    function startGame (amountOfPairs) {
-        cardsContainer.innerHTML = null
-        cardTemplate = (id, content) => `
+  // 
+  function startGame(amountOfPairs) {
+    cardsContainer.innerHTML = null
+    cardTemplate = (id, content) => `
         <div id="${id}" class="card hidden">
             <div class="text">${content}</div>
             <div class="memory">MEMO</div>
         </div>
-        ` 
-        
-        let contents = []
-        for (let i = 0; i < amountOfPairs; i++) {
-            let tmp = '' + getRandNumStr(6)
-            contents.push(tmp)
-            contents.push(tmp)
-        }
+        `
 
-        // I made a bad shuffle function, so I made a work-around :/
-        for (let i = 0; i < (Math.random() * 10); i++) {
-            shuffle(contents)
-        }
-
-        // Assign content to cards
-        for (let i = 0; i < (amountOfPairs * 2); i++) {
-            let tmp = contents[i]
-            cardsContainer.innerHTML += cardTemplate(i, tmp)
-        }
-
-        // Add evenlisteners to cards
-        for (let i = 0; i < cardsContainer.children.length; i++) {
-            cardsContainer.children[i].addEventListener("click", () => {
-                let tmp = cardsContainer.children[i].querySelector('.text').innerHTML
-
-                click(cardsContainer.children[i])
-            })
-        }
+    let contents = []
+    for (let i = 0; i < amountOfPairs; i++) {
+      let tmp = '' + getRandNumStr(6)
+      contents.push(tmp)
+      contents.push(tmp)
     }
+
+    // I made a bad shuffle function, so I made a work-around :/
+    for (let i = 0; i < (Math.random() * 10); i++) {
+      shuffle(contents)
+    }
+
+    // Assign content to cards
+    for (let i = 0; i < (amountOfPairs * 2); i++) {
+      let tmp = contents[i]
+      cardsContainer.innerHTML += cardTemplate(i, tmp)
+    }
+
+    // Add evenlisteners to cards
+    for (let i = 0; i < cardsContainer.children.length; i++) {
+      cardsContainer.children[i].addEventListener("click", () => {
+        let tmp = cardsContainer.children[i].querySelector('.text').innerHTML
+
+        click(cardsContainer.children[i])
+      })
+    }
+  }
 }
 
 /**
@@ -81,16 +73,16 @@ window.onload = () => {
  * @param {Array} a items An array containing the items.
  */
 function shuffle(a) {
-    let j, x, i
-    
-    for (i = a.length - 1; i > 0; i--) {
-        j = Math.floor(Math.random() * (i + 1))
-        x = a[i]
-        a[i] = a[j]
-        a[j] = x
-    }
+  let j, x, i
 
-    return a
+  for (i = a.length - 1; i > 0; i--) {
+    j = Math.floor(Math.random() * (i + 1))
+    x = a[i]
+    a[i] = a[j]
+    a[j] = x
+  }
+
+  return a
 }
 
 /**
@@ -98,11 +90,11 @@ function shuffle(a) {
  * @param {int} an integer defining the amount of numbers in the string
  */
 function getRandNumStr(n) {
-    let tmp = ''
+  let tmp = ''
 
-    for (let i = 0; i < n; i++) {
-        tmp += Math.floor(Math.random() * 10)
-    }
+  for (let i = 0; i < n; i++) {
+    tmp += Math.floor(Math.random() * 10)
+  }
 
-    return tmp
+  return tmp
 }

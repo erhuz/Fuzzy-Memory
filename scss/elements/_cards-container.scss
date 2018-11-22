@@ -1,74 +1,74 @@
-.cards-container{
+.cards-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  max-width: 1040px;
+  margin: 0 auto;
+
+  .card {
+    cursor: pointer;
+    user-select: none;
+
+    width: 200px;
+    height: 200px;
+    background-color: rgb(228, 159, 245);
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 16px;
+    margin-top: 16px;
+    padding: 8px;
+    flex-basis: 210px;
+
+    transition: box-shadow .3s ease;
+
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    max-width: 1040px;
-    margin: 0 auto;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
 
-    .card{
-        cursor: pointer;
-        user-select: none;
-
-        width: 200px;
-        height: 200px;
-        background-color: rgb(228, 159, 245);
-        box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75);
-        border-radius: 16px;
-        margin-top: 16px;
-        padding: 8px;
-        flex-basis: 210px;
-
-        transition: box-shadow .3s ease;
-
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-content: center;
-
-        .text{
-            margin-top: calc(50% - 20px);
-            display: block;
-            height: 20px;
-            font-size: 20px;
-        }
-
-        .memory{
-            display: none;
-        }
-
-        .text{
-            transition: font-size .2s ease;
-        }
-
-        .memory{
-            transition: font-size .2s ease;
-        }
+    .text {
+      margin-top: calc(50% - 20px);
+      display: block;
+      height: 20px;
+      font-size: 20px;
     }
 
-    .card.hidden{
-        background-color: rgb(223, 97, 245);
-
-        .text{
-            display: none;
-        }
-
-        .memory{
-            margin-top: 70px;
-            font-size: 40px;
-            font-weight: bold;
-            display: initial;
-        }
+    .memory {
+      display: none;
     }
 
-    .card:hover{
-        box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.75);
-        
-        .text{
-            font-size: 22px;
-        }
-
-        div.memory{
-            font-size: 2.6rem;
-        }
+    .text {
+      transition: font-size .2s ease;
     }
+
+    .memory {
+      transition: font-size .2s ease;
+    }
+  }
+
+  .card.hidden {
+    background-color: rgb(223, 97, 245);
+
+    .text {
+      display: none;
+    }
+
+    .memory {
+      margin-top: 70px;
+      font-size: 40px;
+      font-weight: bold;
+      display: initial;
+    }
+  }
+
+  .card:hover {
+    box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.75);
+
+    .text {
+      font-size: 22px;
+    }
+
+    div.memory {
+      font-size: 2.6rem;
+    }
+  }
 }
