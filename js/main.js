@@ -3,6 +3,7 @@ window.onload = () => {
   const startScreen = document.querySelector('.start-screen')
   const cardsContainer = document.querySelector('.cards-container')
   const endGameModal = document.querySelector('.endgame-modal')
+  const restartBtn = document.querySelector('.restartBtn')
 
   // create an array to store the last two clicked elements
   let lastTwoClicks = []
@@ -10,7 +11,17 @@ window.onload = () => {
   // What happends when you click an element?
   function click(element) {
 
-    // If you clicked a card that is hidden
+    // If you have one active card & isn't clicking the same card
+    if (lastTwoClicks.length === 1 && element.id !== lastTwoClicks[0].id) {
+      if (lastTwoClicks[0].querySelector('.text').innerHTML === element.querySelector('.text').innerHTML) {
+        element.classList.remove('hidden')
+        element.classList.add('success')
+        lastTwoClicks[0].classList.add('success')
+        lastTwoClicks = []
+      }
+    }
+
+    // If the clicked card is hidden
     if (element.classList.contains('hidden')) {
       if (lastTwoClicks.length >= 2) {
         lastTwoClicks.forEach((el) => {
@@ -26,16 +37,19 @@ window.onload = () => {
     element.classList.remove('hidden')
   }
 
-  // Start game with (8) pairs
+  restartBtn.addEventListener("click", () => {
+    // Start game with (8) pairs
+    startGame(8)
+  })
   startGame(8)
 
   /**
-   *  Initialize game w/ specified amount of pairs
+   *  Initialize game with specified amount of pairs
    *  @param {int} amountOfPairs An integer to specify amount of pairs
-   */ 
+   */
   function startGame(amountOfPairs) {
     cardsContainer.innerHTML = null
-    cardTemplate = (id, content) => `
+    cardTemplate = (id, content, i) => `
         <div id="${id}" class="card hidden">
             <div class="text">${content}</div>
             <div class="memory">MEMO</div>
@@ -57,7 +71,7 @@ window.onload = () => {
     // Assign content to cards
     for (let i = 0; i < (amountOfPairs * 2); i++) {
       let tmp = contents[i]
-      cardsContainer.innerHTML += cardTemplate(i, tmp)
+      cardsContainer.innerHTML += cardTemplate(i, tmp, i)
     }
 
     // Add evenlisteners to cards
