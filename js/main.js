@@ -10,26 +10,29 @@ window.onload = () => {
   // What happends when you click an element?
   function click(element) {
 
-    // If you clicked
-    if (!element.classList.contains('hidden')) {
+    // If you clicked a card that is hidden
+    if (element.classList.contains('hidden')) {
+      if (lastTwoClicks.length >= 2) {
+        lastTwoClicks.forEach((el) => {
+          el.classList.add('hidden')
+        })
 
-    } else if (lastTwoClicks.length >= 2) {
-      lastTwoClicks.forEach((el) => {
-        el.classList.add('hidden')
-      })
-
-      lastTwoClicks = [element]
-    } else {
-      lastTwoClicks.push(element)
+        lastTwoClicks = [element]
+      } else {
+        lastTwoClicks.push(element)
+      }
     }
-    
+    // Show hidden cards content
     element.classList.remove('hidden')
   }
 
   // Start game with (8) pairs
   startGame(8)
 
-  // 
+  /**
+   *  Initialize game w/ specified amount of pairs
+   *  @param {int} amountOfPairs An integer to specify amount of pairs
+   */ 
   function startGame(amountOfPairs) {
     cardsContainer.innerHTML = null
     cardTemplate = (id, content) => `
@@ -68,9 +71,13 @@ window.onload = () => {
   }
 }
 
+//
+// Functions
+//
+
 /**
  * Shuffles array in place.
- * @param {Array} a items An array containing the items.
+ * @param {Array} a An array containing the items.
  */
 function shuffle(a) {
   let j, x, i
@@ -87,7 +94,7 @@ function shuffle(a) {
 
 /**
  * Gets a random string of numbers
- * @param {int} an integer defining the amount of numbers in the string
+ * @param {int} n An integer defining the amount of numbers in the string
  */
 function getRandNumStr(n) {
   let tmp = ''
