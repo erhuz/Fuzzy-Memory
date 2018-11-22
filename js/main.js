@@ -14,8 +14,9 @@ window.onload = () => {
     function startGame (amountOfPairs) {
         cardsContainer.innerHTML = null
         cardTemplate = (id, content) => `
-        <div id="${id}" class="card">
+        <div id="${id}" class="card hidden">
             <div class="text">${content}</div>
+            <div class="memory">MEMO</div>
         </div>
         ` 
         
@@ -25,8 +26,12 @@ window.onload = () => {
             contents.push(tmp)
             contents.push(tmp)
         }
-        
-        shuffle(contents)
+
+        // I made a bad shuffle function, so I made a work-around :/
+        for (let i = 0; i < (Math.random() * 10); i++) {
+            shuffle(contents)
+        }
+
         console.log(contents)
 
         for (let i = 0; i < (amountOfPairs * 2); i++) {
@@ -39,6 +44,8 @@ window.onload = () => {
             cardsContainer.children[i].addEventListener("click", () => {
                 let tmp = cardsContainer.children[i].querySelector('.text').innerHTML
                 console.log(i + ' was clicked with the content \'' + tmp + '\'')
+
+                cardsContainer.children[i].classList.toggle('hidden')
             })
         }
     }
@@ -63,6 +70,7 @@ function shuffle(a) {
 
 /**
  * Gets a random string of numbers
+ * @param {int} an integer defining the amount of numbers in the string
  */
 const getRandNumStr = (n) => {
     let tmp = ''
