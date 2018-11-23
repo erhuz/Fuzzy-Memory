@@ -5,7 +5,7 @@
 The assignment is to create a memory game entirely in HTML, CSS and JavaScript. The game should be completed before December 4 2018 09:00 and pushed to an public repository on GitHub.
 
 ## **OBS!**
-_I used SCSS in this assignment, but I refered from using the built in SCSS functions, therefor I do not count this as cheating. **I only used SCSS due to its nesting functionality.**_
+_I used SCSS in this assignment, but I refered from using the built in SCSS functions, therefore I do not count this as cheating. **I only used SCSS due to its nesting functionality.**_
 
 ## Testers
 - Benjamin Fransson
