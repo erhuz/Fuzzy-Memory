@@ -9,7 +9,7 @@ _I used SCSS in this assignment, but I refered from using the built in SCSS func
 
 ## Testers
 - Benjamin Fransson
-- 
+- Gustav Svendsen
 - 
 
 ## Installation
