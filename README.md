@@ -10,7 +10,7 @@ _I used SCSS in this assignment, but I refered from using the built in SCSS func
 ## Testers
 - Benjamin Fransson
 - Gustav Svendsen
-- 
+- Rebecca Klaening
 
 ## Installation
 1. Clone the repository  
