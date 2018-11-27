@@ -15,8 +15,7 @@ _I used SCSS in this assignment, but I refered from using the built in SCSS func
 ## Installation
 1. Clone the repository  
 `git clone https://github.com/erhuz/Fuzzy-Memory.git`
-1. Set up your webserver root in the Fuzzy Memory directory  
-_To see the full path to the Fuzzy Memory directory, run:&nbsp;&nbsp;`cd Fuzzy-Memory` and then `pwd`_
+1. Open the index.html file inside the recently aquired Fuzzy-Memory folder
 
 ## License
 The MIT License - MIT
