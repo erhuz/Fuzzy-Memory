@@ -15,7 +15,7 @@ _I used SCSS in this assignment, but I refered from using the built in SCSS func
 ## Installation
 1. Clone the repository  
 `git clone https://github.com/erhuz/Fuzzy-Memory.git`
-1. Open the index.html file inside the recently aquired Fuzzy-Memory folder
+1. Open the `index.html` file inside the recently aquired Fuzzy-Memory folder
 
 ## License
 The MIT License - MIT
