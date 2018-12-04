@@ -24,7 +24,11 @@ window.onload = () => {
     if (element.classList.contains('hidden')) {
       if (lastTwoClicks.length >= 2) {
         lastTwoClicks.forEach((el) => {
-          el.classList.add('hidden')
+          el.classList.remove('turn')
+          setTimeout(() => {
+            console.log('UBGEUISGBGI')
+            el.classList.add('hidden')
+          }, 150)
         })
 
         lastTwoClicks = [element]
@@ -33,7 +37,11 @@ window.onload = () => {
       }
     }
     // Show hidden cards content
-    element.classList.remove('hidden')
+    element.classList.add('turn')
+    setTimeout(() => {
+      console.log('AOISGHPISAUGHIUGSDIGN')
+      element.classList.remove('hidden')
+    }, 150)
 
     // If won
     if(checkIfWon()){
@@ -61,7 +69,7 @@ window.onload = () => {
     cardTemplate = (id, content, i) => `
         <div id="${id}" class="card hidden">
             <div class="text">${content}</div>
-            <div class="memory">MEMO</div>
+            <div class="memory">OMEM</div>
         </div>
         `
 

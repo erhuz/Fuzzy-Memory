@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.cards-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.cards-container .card {
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  width: 200px;
+  height: 160px;
+  background-color: #e49ff5;
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.75);
+          box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 16px;
+  margin-top: 16px;
+  padding: 8px;
+  -ms-flex-preferred-size: 210px;
+      flex-basis: 210px;
+  -webkit-transition: -webkit-transform .3s ease, -webkit-box-shadow .3s ease;
+  transition: -webkit-transform .3s ease, -webkit-box-shadow .3s ease;
+  transition: transform .3s ease, box-shadow .3s ease;
+  transition: transform .3s ease, box-shadow .3s ease, -webkit-transform .3s ease, -webkit-box-shadow .3s ease;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.cards-container .card .text {
+  margin-top: calc(33%);
+  display: block;
+  height: 20px;
+  font-size: 20px;
+}
+
+.cards-container .card .memory {
+  display: none;
+}
+
+.cards-container .card .text {
+  -webkit-transition: font-size .2s ease;
+  transition: font-size .2s ease;
+}
+
+.cards-container .card .memory {
+  -webkit-transition: font-size .2s ease;
+  transition: font-size .2s ease;
+}
+
+.cards-container .card.success {
+  background-color: #84d484;
+}
+
+.cards-container .card.turn {
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+}
+
+.cards-container .card.hidden {
+  background-color: #df61f5;
+}
+
+.cards-container .card.hidden .text {
+  display: none;
+}
+
+.cards-container .card.hidden .memory {
+  margin-top: 55px;
+  font-size: 32px;
+  font-weight: bold;
+  display: initial;
+}
+
+.cards-container .card:hover {
+  -webkit-box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.75);
+          box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.75);
+}
+
+.cards-container .card:hover .text {
+  font-size: 22px;
+}
+
+.cards-container .card:hover div.memory {
+  font-size: 2.1rem;
+}
+
+.restartBtn {
+  margin: 16px auto;
+  text-align: center;
+  padding: 16px;
+  width: 160px;
+  background-color: #46f9ff;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border-radius: 3px;
+}
+
+.endgame-modal {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  margin: calc(40vh - 200px) 0;
+}
+
+.endgame-modal .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  color: #eee;
+  background-color: rgba(34, 34, 34, 0.9);
+  border-radius: 5px;
+  width: 450px;
+  height: 400px;
+  margin: 0 auto;
+}
+
+.endgame-modal.hidden {
+  display: none;
+}
+/*# sourceMappingURL=main.css.map */

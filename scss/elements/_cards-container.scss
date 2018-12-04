@@ -18,7 +18,8 @@
     padding: 8px;
     flex-basis: 210px;
 
-    transition: box-shadow .3s ease;
+    transition: transform .3s ease, box-shadow .3s ease;
+    transform: rotateY(180deg);
 
     display: flex;
     flex-direction: row;
@@ -47,6 +48,10 @@
 
   .card.success {
     background-color: rgb(132, 212, 132);
+  }
+
+  .card.turn{
+    transform: rotateY(0deg);
   }
 
   .card.hidden {
