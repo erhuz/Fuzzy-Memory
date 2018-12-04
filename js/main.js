@@ -26,11 +26,7 @@ window.onload = () => {
       
       if (lastTwoClicks.length >= 2) {
         lastTwoClicks.forEach((el) => {
-          el.classList.remove('turn')
-          setTimeout(() => {
-            console.log('UBGEUISGBGI')
             el.classList.add('hidden')
-          }, 150)
         })
         
         lastTwoClicks = [element]
@@ -41,19 +37,6 @@ window.onload = () => {
     
     // Show hidden cards content
     element.classList.remove('hidden')
-    
-    // This is really makeshift tbh and needs to be made better
-    // It automatically turns the two last cards around after 750ms
-    if(lastTwoClicks.length > 1){
-      const tmpLastTwoClicks = lastTwoClicks
-      
-      // Remove
-      setTimeout(() => {
-        tmpLastTwoClicks.forEach((el) => {
-          el.classList.add('hidden')
-        })
-      }, 750)
-    }
     
     // If won
     if(checkIfWon()){
