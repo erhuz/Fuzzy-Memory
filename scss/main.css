@@ -37,8 +37,6 @@ body {
   transition: -webkit-transform .3s ease, -webkit-box-shadow .3s ease;
   transition: transform .3s ease, box-shadow .3s ease;
   transition: transform .3s ease, box-shadow .3s ease, -webkit-transform .3s ease, -webkit-box-shadow .3s ease;
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
